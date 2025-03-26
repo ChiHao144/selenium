@@ -116,7 +116,7 @@ namespace _52_Hao_N2_B3_Selenium_WebDriver
             //Bai 3 h: back forward
             //Dieu huong den 1 trinh duyet
             driver_52_Hao = new ChromeDriver();
-            driver_52_Hao.Navigate().GoToUrl("http://vnexpress.net");
+            driver_52_Hao.Navigate().GoToUrl("http://www.google.com/");
             Thread.Sleep(1000);
             driver_52_Hao.Navigate().GoToUrl("http://ou.edu.vn/");
             Thread.Sleep(5000);
@@ -125,6 +125,40 @@ namespace _52_Hao_N2_B3_Selenium_WebDriver
             driver_52_Hao.Navigate().Forward();
             Thread.Sleep(1000);
             driver_52_Hao.Navigate().Refresh();
+        }
+
+        private void btn_TuDienTimKiem_52_Hao_Click(object sender, EventArgs e)
+        {
+            //Bai 4: Tu dien vao khung tim kiem cua 1 web
+            //tat man hinh den
+            ChromeDriverService chrome_52_Hao = ChromeDriverService.CreateDefaultService();
+            chrome_52_Hao.HideCommandPromptWindow = true;
+            //Dieu huong den trang google
+            driver_52_Hao = new ChromeDriver(chrome_52_Hao);
+            driver_52_Hao.Navigate().GoToUrl("http://www.google.com/");
+            //Nhap tim kiem
+            IWebElement element_52_hao = driver_52_Hao.FindElement(By.Name("q"));
+            element_52_hao.SendKeys("Tự học java");
+        }
+
+        private void btn_DangNhapFB_52_Hao_Click(object sender, EventArgs e)
+        {
+            //Bai 5: Tu dong dang nhap facebook bang thuoc tinh by.name
+            //tat man hinh den
+            ChromeDriverService chrome_52_Hao = ChromeDriverService.CreateDefaultService();
+            chrome_52_Hao.HideCommandPromptWindow= true;
+            //Dieu duong toi trang facebook
+            driver_52_Hao = new ChromeDriver( chrome_52_Hao);
+            driver_52_Hao.Navigate().GoToUrl("https://www.facebook.com/");
+            //Nhap tim email
+            IWebElement e_email_52_Hao = driver_52_Hao.FindElement(By.Name("email"));
+            e_email_52_Hao.SendKeys("*******@gmail.com");
+            //Nhap tim password
+            IWebElement e_pass_52_Hao = driver_52_Hao.FindElement(By.Name("pass"));
+            e_pass_52_Hao.SendKeys("********");
+            //Click vao login
+            IWebElement e_login_52_Hao = driver_52_Hao.FindElement(By.Name("login"));
+            e_login_52_Hao.Click();
         }
     }
 }
